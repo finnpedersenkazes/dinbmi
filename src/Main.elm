@@ -95,7 +95,6 @@ view model =
         [ style "font-size" "7vw"
         , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
         , style "margin" "4px"
-        , style "min-with" "100%"
         , style "background-size" "contain"
         ]
         ([ viewTableHead ] ++ [ viewTableBody model ])
@@ -200,7 +199,6 @@ cellStyles color =
     , style "background-color" color.backgroundColor
     , style "color" color.textColor
     , style "border-color" color.borderColor
-    , style "width" "100%"
     ]
 
 

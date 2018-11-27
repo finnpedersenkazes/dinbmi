@@ -5178,8 +5178,7 @@ var author$project$Main$cellStyles = function (color) {
 			A2(elm$html$Html$Attributes$style, 'border-radius', '3px'),
 			A2(elm$html$Html$Attributes$style, 'background-color', color.backgroundColor),
 			A2(elm$html$Html$Attributes$style, 'color', color.textColor),
-			A2(elm$html$Html$Attributes$style, 'border-color', color.borderColor),
-			A2(elm$html$Html$Attributes$style, 'width', '100%')
+			A2(elm$html$Html$Attributes$style, 'border-color', color.borderColor)
 		]);
 };
 var elm$html$Html$br = _VirtualDom_node('br');
@@ -5474,7 +5473,6 @@ var author$project$Main$view = function (model) {
 				A2(elm$html$Html$Attributes$style, 'font-size', '7vw'),
 				A2(elm$html$Html$Attributes$style, 'font-family', 'Helvetica Neue,Helvetica,Arial,sans-serif'),
 				A2(elm$html$Html$Attributes$style, 'margin', '4px'),
-				A2(elm$html$Html$Attributes$style, 'min-with', '100%'),
 				A2(elm$html$Html$Attributes$style, 'background-size', 'contain')
 			]),
 		_Utils_ap(
