@@ -92,7 +92,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     table
-        [ style "font-size" "6vw"
+        [ style "font-size" "7vw"
         , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
         , style "margin" "4px"
         , style "min-with" "100%"

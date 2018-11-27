@@ -5471,7 +5471,7 @@ var author$project$Main$view = function (model) {
 		elm$html$Html$table,
 		_List_fromArray(
 			[
-				A2(elm$html$Html$Attributes$style, 'font-size', '6vw'),
+				A2(elm$html$Html$Attributes$style, 'font-size', '7vw'),
 				A2(elm$html$Html$Attributes$style, 'font-family', 'Helvetica Neue,Helvetica,Arial,sans-serif'),
 				A2(elm$html$Html$Attributes$style, 'margin', '4px'),
 				A2(elm$html$Html$Attributes$style, 'min-with', '100%'),
