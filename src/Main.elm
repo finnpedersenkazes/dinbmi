@@ -94,7 +94,7 @@ view model =
     table
         [ style "font-size" "7vw"
         , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
-        , style "margin" "4px"
+        , style "padding" "10px"
         , style "background-size" "contain"
         ]
         ([ viewTableHead ] ++ [ viewTableBody model ])
@@ -171,7 +171,7 @@ viewTableHeadLine =
     th []
         [ div
             (cellStyles colorHeader
-                ++ [ style "font-size" "8vw" ]
+                ++ [ style "font-size" "9vw" ]
             )
             [ text "Beregn din ideal vægt" ]
         ]

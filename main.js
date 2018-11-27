@@ -5435,7 +5435,7 @@ var author$project$Main$viewTableHeadLine = A2(
 				author$project$Main$cellStyles(author$project$Main$colorHeader),
 				_List_fromArray(
 					[
-						A2(elm$html$Html$Attributes$style, 'font-size', '8vw')
+						A2(elm$html$Html$Attributes$style, 'font-size', '9vw')
 					])),
 			_List_fromArray(
 				[
@@ -5456,7 +5456,7 @@ var author$project$Main$view = function (model) {
 			[
 				A2(elm$html$Html$Attributes$style, 'font-size', '7vw'),
 				A2(elm$html$Html$Attributes$style, 'font-family', 'Helvetica Neue,Helvetica,Arial,sans-serif'),
-				A2(elm$html$Html$Attributes$style, 'margin', '4px'),
+				A2(elm$html$Html$Attributes$style, 'padding', '10px'),
 				A2(elm$html$Html$Attributes$style, 'background-size', 'contain')
 			]),
 		_Utils_ap(
