@@ -92,7 +92,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     table
-        [ style "font-size" "7vw"
+        [ style "font-size" "6.5vw"
         , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
         , style "padding" "10px"
         , style "background-size" "contain"
@@ -171,7 +171,7 @@ viewTableHeadLine =
     th []
         [ div
             (cellStyles colorHeader
-                ++ [ style "font-size" "9vw" ]
+                ++ [ style "font-size" "8vw" ]
             )
             [ text "Beregn din ideal vægt" ]
         ]
