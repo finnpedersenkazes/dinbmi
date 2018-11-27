@@ -5178,7 +5178,8 @@ var author$project$Main$cellStyles = function (color) {
 			A2(elm$html$Html$Attributes$style, 'border-radius', '3px'),
 			A2(elm$html$Html$Attributes$style, 'background-color', color.backgroundColor),
 			A2(elm$html$Html$Attributes$style, 'color', color.textColor),
-			A2(elm$html$Html$Attributes$style, 'border-color', color.borderColor)
+			A2(elm$html$Html$Attributes$style, 'border-color', color.borderColor),
+			A2(elm$html$Html$Attributes$style, 'width', '100%')
 		]);
 };
 var elm$html$Html$br = _VirtualDom_node('br');
@@ -5335,27 +5336,33 @@ var author$project$Main$viewTableInputRow = F2(
 				[
 					A2(
 					elm$html$Html$td,
-					author$project$Main$cellStyles(color),
+					_List_Nil,
 					_List_fromArray(
 						[
-							elm$html$Html$text('Din højde: '),
 							A2(
-							elm$html$Html$input,
+							elm$html$Html$div,
+							author$project$Main$cellStyles(color),
 							_List_fromArray(
 								[
-									A2(elm$html$Html$Attributes$style, 'font-size', '7vw'),
-									A2(elm$html$Html$Attributes$style, 'with', 'auto'),
-									A2(elm$html$Html$Attributes$style, 'margin-left', '10px'),
-									elm$html$Html$Attributes$placeholder('180'),
-									elm$html$Html$Attributes$type_('number'),
-									elm$html$Html$Attributes$size(3),
-									elm$html$Html$Attributes$min('100'),
-									elm$html$Html$Attributes$max('300'),
-									elm$html$Html$Attributes$value(model.content),
-									elm$html$Html$Events$onInput(author$project$Main$Change)
-								]),
-							_List_Nil),
-							elm$html$Html$text(' cm')
+									elm$html$Html$text('Din højde: '),
+									A2(
+									elm$html$Html$input,
+									_List_fromArray(
+										[
+											A2(elm$html$Html$Attributes$style, 'font-size', '7vw'),
+											A2(elm$html$Html$Attributes$style, 'with', 'auto'),
+											A2(elm$html$Html$Attributes$style, 'margin-left', '10px'),
+											elm$html$Html$Attributes$placeholder('180'),
+											elm$html$Html$Attributes$type_('number'),
+											elm$html$Html$Attributes$size(3),
+											elm$html$Html$Attributes$min('100'),
+											elm$html$Html$Attributes$max('300'),
+											elm$html$Html$Attributes$value(model.content),
+											elm$html$Html$Events$onInput(author$project$Main$Change)
+										]),
+									_List_Nil),
+									elm$html$Html$text(' cm')
+								]))
 						]))
 				]));
 	});
@@ -5449,7 +5456,7 @@ var author$project$Main$viewTableHeadLine = A2(
 					])),
 			_List_fromArray(
 				[
-					elm$html$Html$text('BMI Beregner')
+					elm$html$Html$text('Beregn din ideal vægt ...')
 				]))
 		]));
 var elm$html$Html$thead = _VirtualDom_node('thead');
@@ -5466,7 +5473,9 @@ var author$project$Main$view = function (model) {
 			[
 				A2(elm$html$Html$Attributes$style, 'font-size', '5vw'),
 				A2(elm$html$Html$Attributes$style, 'font-family', 'Helvetica Neue,Helvetica,Arial,sans-serif'),
-				A2(elm$html$Html$Attributes$style, 'margin', '4px')
+				A2(elm$html$Html$Attributes$style, 'margin', '4px'),
+				A2(elm$html$Html$Attributes$style, 'min-with', '100%'),
+				A2(elm$html$Html$Attributes$style, 'background-size', 'contain')
 			]),
 		_Utils_ap(
 			_List_fromArray(

@@ -95,6 +95,8 @@ view model =
         [ style "font-size" "5vw"
         , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
         , style "margin" "4px"
+        , style "min-with" "100%"
+        , style "background-size" "contain"
         ]
         ([ viewTableHead ] ++ [ viewTableBody model ])
 
@@ -172,7 +174,7 @@ viewTableHeadLine =
             (cellStyles colorHeader
                 ++ [ style "font-size" "8vw" ]
             )
-            [ text "BMI Beregner" ]
+            [ text "Beregn din ideal vægt ..." ]
         ]
 
 
@@ -198,29 +200,31 @@ cellStyles color =
     , style "background-color" color.backgroundColor
     , style "color" color.textColor
     , style "border-color" color.borderColor
+    , style "width" "100%"
     ]
 
 
 viewTableInputRow : AlertColor -> Model -> Html Msg
 viewTableInputRow color model =
     tr []
-        [ td
-            (cellStyles color)
-            [ text "Din højde: "
-            , input
-                [ style "font-size" "7vw"
-                , style "with" "auto"
-                , style "margin-left" "10px"
-                , placeholder "180"
-                , type_ "number"
-                , size 3
-                , Html.Attributes.min "100"
-                , Html.Attributes.max "300"
-                , value model.content
-                , onInput Change
+        [ td []
+            [ div (cellStyles color)
+                [ text "Din højde: "
+                , input
+                    [ style "font-size" "7vw"
+                    , style "with" "auto"
+                    , style "margin-left" "10px"
+                    , placeholder "180"
+                    , type_ "number"
+                    , size 3
+                    , Html.Attributes.min "100"
+                    , Html.Attributes.max "300"
+                    , value model.content
+                    , onInput Change
+                    ]
+                    []
+                , text " cm"
                 ]
-                []
-            , text " cm"
             ]
         ]
 
