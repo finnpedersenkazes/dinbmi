@@ -173,7 +173,7 @@ viewTableHeadLine =
             (cellStyles colorHeader
                 ++ [ style "font-size" "8vw" ]
             )
-            [ text "Beregn din ideal vægt ..." ]
+            [ text "Beregn din ideal vægt" ]
         ]
 
 

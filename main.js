@@ -5439,7 +5439,7 @@ var author$project$Main$viewTableHeadLine = A2(
 					])),
 			_List_fromArray(
 				[
-					elm$html$Html$text('Beregn din ideal vægt ...')
+					elm$html$Html$text('Beregn din ideal vægt')
 				]))
 		]));
 var elm$html$Html$thead = _VirtualDom_node('thead');
