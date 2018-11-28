@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Required meta tags -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>din BMI</title>
-  <script src="main.min.js"></script>
+  <script src="elm.min.js"></script>
   <style>
     html,body {
       width: 100%;
@@ -13,9 +15,11 @@
       overflow-x: hidden;
     }
   </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <div id="elm"></div>
+  <div id="elm" class="container-fluid"></div>
   <script>
   var app = Elm.Main.init({
     node: document.getElementById('elm')

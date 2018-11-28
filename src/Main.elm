@@ -92,67 +92,44 @@ update msg model =
 view : Model -> Html Msg
 view model =
     table
-        [ style "font-size" "6.5vw"
-        , style "font-family" "Helvetica Neue,Helvetica,Arial,sans-serif"
-        , style "padding" "10px"
-        , style "background-size" "contain"
+        [ class "table"
+        , style "font-size" "6.5vw"
         ]
         ([ viewTableHead ] ++ [ viewTableBody model ])
 
 
-type alias AlertColor =
-    { textColor : String
-    , backgroundColor : String
-    , borderColor : String
-    }
+type alias AlertClass =
+    String
 
 
-colorSuccess : AlertColor
-colorSuccess =
-    { textColor = "#3c763d"
-    , backgroundColor = "#dff0d8"
-    , borderColor = "#d6e9c6"
-    }
+alertSuccess : AlertClass
+alertSuccess =
+    "alert-success"
 
 
-colorInfo : AlertColor
-colorInfo =
-    { textColor = "#31708f"
-    , backgroundColor = "#d9edf7"
-    , borderColor = "#bce8f1"
-    }
+alertInfo : AlertClass
+alertInfo =
+    "alert-primary"
 
 
-colorWarning : AlertColor
-colorWarning =
-    { textColor = "#8a6d3b"
-    , backgroundColor = "#fcf8e3"
-    , borderColor = "#faebcc"
-    }
+alertWarning : AlertClass
+alertWarning =
+    "alert-warning"
 
 
-colorDanger : AlertColor
-colorDanger =
-    { textColor = "#a94442"
-    , backgroundColor = "#f2dede"
-    , borderColor = "#ebccd1"
-    }
+alertDanger : AlertClass
+alertDanger =
+    "alert-danger"
 
 
-colorInput : AlertColor
-colorInput =
-    { textColor = colorInfo.textColor
-    , backgroundColor = "#fff"
-    , borderColor = colorInfo.borderColor
-    }
+alertHeader : AlertClass
+alertHeader =
+    "alert-secondary"
 
 
-colorHeader : AlertColor
-colorHeader =
-    { textColor = colorInfo.textColor
-    , backgroundColor = "#eee"
-    , borderColor = colorInfo.borderColor
-    }
+alertInput : AlertClass
+alertInput =
+    "alert-light"
 
 
 calcWeight : Float -> Model -> String
@@ -162,7 +139,7 @@ calcWeight bmi model =
 
 viewTableHead : Html Msg
 viewTableHead =
-    thead []
+    thead [ class "thead-light" ]
         [ viewTableHeadLine ]
 
 
@@ -170,43 +147,38 @@ viewTableHeadLine : Html Msg
 viewTableHeadLine =
     th []
         [ div
-            (cellStyles colorHeader
+            (alertStyle alertHeader
                 ++ [ style "font-size" "8vw" ]
             )
-            [ text "Beregn din ideal vægt ..." ]
+            [ text "Beregn din ideal vægt" ]
         ]
 
 
 viewTableBody : Model -> Html Msg
 viewTableBody model =
     tbody []
-        [ viewTableInputRow colorInput model
-        , viewTableFirstRow "Under normal:" colorInfo 18.5 model
-        , viewTableRow "Normal vægt:" colorSuccess 18.5 25 model
-        , viewTableRow "Overvægtig:" colorWarning 25 30 model
-        , viewTableRow "Overvægtig fedme klasse 1:" colorDanger 30 35 model
-        , viewTableRow "Overvægtig fedme klasse 2:" colorDanger 35 40 model
-        , viewTableLastRow "Overvægtig fedme klasse 3:" colorDanger 40 model
+        [ viewTableInputRow alertInput model
+        , viewTableFirstRow "Under normal:" alertInfo 18.5 model
+        , viewTableRow "Normal vægt:" alertSuccess 18.5 25 model
+        , viewTableRow "Overvægtig:" alertWarning 25 30 model
+        , viewTableRow "Overvægtig fedme klasse 1:" alertDanger 30 35 model
+        , viewTableRow "Overvægtig fedme klasse 2:" alertDanger 35 40 model
+        , viewTableLastRow "Overvægtig fedme klasse 3:" alertDanger 40 model
         ]
 
 
-cellStyles : AlertColor -> List (Attribute msg)
-cellStyles color =
-    [ style "padding" "10px"
-    , style "margin-bottom" "4px"
-    , style "border" "1px solid transparent"
-    , style "border-radius" "3px"
-    , style "background-color" color.backgroundColor
-    , style "color" color.textColor
-    , style "border-color" color.borderColor
+alertStyle : AlertClass -> List (Attribute msg)
+alertStyle alert =
+    [ class "alert"
+    , class alert
     ]
 
 
-viewTableInputRow : AlertColor -> Model -> Html Msg
-viewTableInputRow color model =
+viewTableInputRow : AlertClass -> Model -> Html Msg
+viewTableInputRow alertClass model =
     tr []
         [ td []
-            [ div (cellStyles color)
+            [ div (alertStyle alertClass)
                 [ text "Din højde: "
                 , input
                     [ style "font-size" "7vw"
@@ -227,12 +199,12 @@ viewTableInputRow color model =
         ]
 
 
-viewTableFirstRow : String -> AlertColor -> Float -> Model -> Html Msg
-viewTableFirstRow title color bmi model =
+viewTableFirstRow : String -> AlertClass -> Float -> Model -> Html Msg
+viewTableFirstRow title alertClass bmi model =
     tr []
         [ td []
             [ div
-                (cellStyles color)
+                (alertStyle alertClass)
                 [ text title
                 , br [] []
                 , text "mindre end "
@@ -243,12 +215,12 @@ viewTableFirstRow title color bmi model =
         ]
 
 
-viewTableRow : String -> AlertColor -> Float -> Float -> Model -> Html Msg
-viewTableRow title color bmi1 bmi2 model =
+viewTableRow : String -> AlertClass -> Float -> Float -> Model -> Html Msg
+viewTableRow title alertClass bmi1 bmi2 model =
     tr []
         [ td []
             [ div
-                (cellStyles color)
+                (alertStyle alertClass)
                 [ text title
                 , br [] []
                 , text "mellem "
@@ -261,12 +233,12 @@ viewTableRow title color bmi1 bmi2 model =
         ]
 
 
-viewTableLastRow : String -> AlertColor -> Float -> Model -> Html Msg
-viewTableLastRow title color bmi model =
+viewTableLastRow : String -> AlertClass -> Float -> Model -> Html Msg
+viewTableLastRow title alertClass bmi model =
     tr []
         [ td []
             [ div
-                (cellStyles color)
+                (alertStyle alertClass)
                 [ text title
                 , br [] []
                 , text "over "
