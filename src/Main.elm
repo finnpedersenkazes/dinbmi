@@ -93,6 +93,7 @@ view : Model -> Html Msg
 view model =
     table
         [ class "table"
+        , class "table-sm"
         , style "font-size" "6.5vw"
         ]
         ([ viewTableHead ] ++ [ viewTableBody model ])
@@ -171,6 +172,7 @@ alertStyle : AlertClass -> List (Attribute msg)
 alertStyle alert =
     [ class "alert"
     , class alert
+    , style "margin-bottom" "0px"
     ]
 
 

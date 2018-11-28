@@ -4878,11 +4878,14 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
 var author$project$Main$alertStyle = function (alert) {
 	return _List_fromArray(
 		[
 			elm$html$Html$Attributes$class('alert'),
-			elm$html$Html$Attributes$class(alert)
+			elm$html$Html$Attributes$class(alert),
+			A2(elm$html$Html$Attributes$style, 'margin-bottom', '0px')
 		]);
 };
 var author$project$Main$weightCalculator = F2(
@@ -5213,8 +5216,6 @@ var elm$html$Html$Attributes$size = function (n) {
 		'size',
 		elm$core$String$fromInt(n));
 };
-var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
 var elm$html$Html$Attributes$type_ = elm$html$Html$Attributes$stringProperty('type');
 var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
 var elm$html$Html$Events$alwaysStop = function (x) {
@@ -5454,6 +5455,7 @@ var author$project$Main$view = function (model) {
 		_List_fromArray(
 			[
 				elm$html$Html$Attributes$class('table'),
+				elm$html$Html$Attributes$class('table-sm'),
 				A2(elm$html$Html$Attributes$style, 'font-size', '6.5vw')
 			]),
 		_Utils_ap(
