@@ -96,7 +96,7 @@ view model =
         , class "table-sm"
         , style "font-size" "6.5vw"
         ]
-        ([ viewTableHead ] ++ [ viewTableBody model ])
+        ([ viewTableHead model ] ++ [ viewTableBody model ])
 
 
 type alias AlertClass =
@@ -138,48 +138,31 @@ calcWeight bmi model =
     round 0 (weightCalculator bmi model.height)
 
 
-viewTableHead : Html Msg
-viewTableHead =
+viewTableHead : Model -> Html Msg
+viewTableHead model =
     thead [ class "thead-light" ]
-        [ viewTableHeadLine ]
+        [ viewTableHeadLine
+        , viewTableInputRow alertInput model
+        ]
 
 
 viewTableHeadLine : Html Msg
 viewTableHeadLine =
-    th []
-        [ div
-            (alertStyle alertHeader
-                ++ [ style "font-size" "8vw" ]
-            )
-            [ text "Beregn din ideal vægt" ]
+    tr []
+        [ th []
+            [ div
+                (alertStyle alertHeader
+                    ++ [ style "font-size" "8vw" ]
+                )
+                [ text "Beregn din ideal vægt" ]
+            ]
         ]
-
-
-viewTableBody : Model -> Html Msg
-viewTableBody model =
-    tbody []
-        [ viewTableInputRow alertInput model
-        , viewTableFirstRow "Under normal:" alertInfo 18.5 model
-        , viewTableRow "Normal vægt:" alertSuccess 18.5 25 model
-        , viewTableRow "Overvægtig:" alertWarning 25 30 model
-        , viewTableRow "Overvægtig fedme klasse 1:" alertDanger 30 35 model
-        , viewTableRow "Overvægtig fedme klasse 2:" alertDanger 35 40 model
-        , viewTableLastRow "Overvægtig fedme klasse 3:" alertDanger 40 model
-        ]
-
-
-alertStyle : AlertClass -> List (Attribute msg)
-alertStyle alert =
-    [ class "alert"
-    , class alert
-    , style "margin-bottom" "0px"
-    ]
 
 
 viewTableInputRow : AlertClass -> Model -> Html Msg
 viewTableInputRow alertClass model =
     tr []
-        [ td []
+        [ th []
             [ div (alertStyle alertClass)
                 [ text "Din højde: "
                 , input
@@ -199,6 +182,26 @@ viewTableInputRow alertClass model =
                 ]
             ]
         ]
+
+
+viewTableBody : Model -> Html Msg
+viewTableBody model =
+    tbody []
+        [ viewTableFirstRow "Under normal:" alertInfo 18.5 model
+        , viewTableRow "Normal vægt:" alertSuccess 18.5 25 model
+        , viewTableRow "Overvægtig:" alertWarning 25 30 model
+        , viewTableRow "Overvægtig fedme klasse 1:" alertDanger 30 35 model
+        , viewTableRow "Overvægtig fedme klasse 2:" alertDanger 35 40 model
+        , viewTableLastRow "Overvægtig fedme klasse 3:" alertDanger 40 model
+        ]
+
+
+alertStyle : AlertClass -> List (Attribute msg)
+alertStyle alert =
+    [ class "alert"
+    , class alert
+    , style "margin-bottom" "0px"
+    ]
 
 
 viewTableFirstRow : String -> AlertClass -> Float -> Model -> Html Msg

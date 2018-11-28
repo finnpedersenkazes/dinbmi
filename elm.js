@@ -4460,7 +4460,6 @@ var author$project$Main$update = F2(
 	});
 var author$project$Main$alertDanger = 'alert-danger';
 var author$project$Main$alertInfo = 'alert-primary';
-var author$project$Main$alertInput = 'alert-light';
 var author$project$Main$alertSuccess = 'alert-success';
 var author$project$Main$alertWarning = 'alert-warning';
 var elm$core$Array$branchFactor = 32;
@@ -5205,6 +5204,105 @@ var author$project$Main$viewTableFirstRow = F4(
 						]))
 				]));
 	});
+var author$project$Main$viewTableLastRow = F4(
+	function (title, alertClass, bmi, model) {
+		return A2(
+			elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$div,
+							author$project$Main$alertStyle(alertClass),
+							_List_fromArray(
+								[
+									elm$html$Html$text(title),
+									A2(elm$html$Html$br, _List_Nil, _List_Nil),
+									elm$html$Html$text('over '),
+									elm$html$Html$text(
+									A2(author$project$Main$calcWeight, bmi, model)),
+									elm$html$Html$text(' kg.')
+								]))
+						]))
+				]));
+	});
+var author$project$Main$viewTableRow = F5(
+	function (title, alertClass, bmi1, bmi2, model) {
+		return A2(
+			elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							elm$html$Html$div,
+							author$project$Main$alertStyle(alertClass),
+							_List_fromArray(
+								[
+									elm$html$Html$text(title),
+									A2(elm$html$Html$br, _List_Nil, _List_Nil),
+									elm$html$Html$text('mellem '),
+									elm$html$Html$text(
+									A2(author$project$Main$calcWeight, bmi1, model)),
+									elm$html$Html$text(' og '),
+									elm$html$Html$text(
+									A2(author$project$Main$calcWeight, bmi2, model)),
+									elm$html$Html$text(' kg.')
+								]))
+						]))
+				]));
+	});
+var elm$html$Html$tbody = _VirtualDom_node('tbody');
+var author$project$Main$viewTableBody = function (model) {
+	return A2(
+		elm$html$Html$tbody,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A4(author$project$Main$viewTableFirstRow, 'Under normal:', author$project$Main$alertInfo, 18.5, model),
+				A5(author$project$Main$viewTableRow, 'Normal vægt:', author$project$Main$alertSuccess, 18.5, 25, model),
+				A5(author$project$Main$viewTableRow, 'Overvægtig:', author$project$Main$alertWarning, 25, 30, model),
+				A5(author$project$Main$viewTableRow, 'Overvægtig fedme klasse 1:', author$project$Main$alertDanger, 30, 35, model),
+				A5(author$project$Main$viewTableRow, 'Overvægtig fedme klasse 2:', author$project$Main$alertDanger, 35, 40, model),
+				A4(author$project$Main$viewTableLastRow, 'Overvægtig fedme klasse 3:', author$project$Main$alertDanger, 40, model)
+			]));
+};
+var author$project$Main$alertInput = 'alert-light';
+var author$project$Main$alertHeader = 'alert-secondary';
+var elm$html$Html$th = _VirtualDom_node('th');
+var author$project$Main$viewTableHeadLine = A2(
+	elm$html$Html$tr,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A2(
+			elm$html$Html$th,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$div,
+					_Utils_ap(
+						author$project$Main$alertStyle(author$project$Main$alertHeader),
+						_List_fromArray(
+							[
+								A2(elm$html$Html$Attributes$style, 'font-size', '8vw')
+							])),
+					_List_fromArray(
+						[
+							elm$html$Html$text('Beregn din ideal vægt')
+						]))
+				]))
+		]));
 var author$project$Main$Change = elm$core$Basics$identity;
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$Attributes$max = elm$html$Html$Attributes$stringProperty('max');
@@ -5315,7 +5413,7 @@ var author$project$Main$viewTableInputRow = F2(
 			_List_fromArray(
 				[
 					A2(
-					elm$html$Html$td,
+					elm$html$Html$th,
 					_List_Nil,
 					_List_fromArray(
 						[
@@ -5346,108 +5444,20 @@ var author$project$Main$viewTableInputRow = F2(
 						]))
 				]));
 	});
-var author$project$Main$viewTableLastRow = F4(
-	function (title, alertClass, bmi, model) {
-		return A2(
-			elm$html$Html$tr,
-			_List_Nil,
-			_List_fromArray(
-				[
-					A2(
-					elm$html$Html$td,
-					_List_Nil,
-					_List_fromArray(
-						[
-							A2(
-							elm$html$Html$div,
-							author$project$Main$alertStyle(alertClass),
-							_List_fromArray(
-								[
-									elm$html$Html$text(title),
-									A2(elm$html$Html$br, _List_Nil, _List_Nil),
-									elm$html$Html$text('over '),
-									elm$html$Html$text(
-									A2(author$project$Main$calcWeight, bmi, model)),
-									elm$html$Html$text(' kg.')
-								]))
-						]))
-				]));
-	});
-var author$project$Main$viewTableRow = F5(
-	function (title, alertClass, bmi1, bmi2, model) {
-		return A2(
-			elm$html$Html$tr,
-			_List_Nil,
-			_List_fromArray(
-				[
-					A2(
-					elm$html$Html$td,
-					_List_Nil,
-					_List_fromArray(
-						[
-							A2(
-							elm$html$Html$div,
-							author$project$Main$alertStyle(alertClass),
-							_List_fromArray(
-								[
-									elm$html$Html$text(title),
-									A2(elm$html$Html$br, _List_Nil, _List_Nil),
-									elm$html$Html$text('mellem '),
-									elm$html$Html$text(
-									A2(author$project$Main$calcWeight, bmi1, model)),
-									elm$html$Html$text(' og '),
-									elm$html$Html$text(
-									A2(author$project$Main$calcWeight, bmi2, model)),
-									elm$html$Html$text(' kg.')
-								]))
-						]))
-				]));
-	});
-var elm$html$Html$tbody = _VirtualDom_node('tbody');
-var author$project$Main$viewTableBody = function (model) {
+var elm$html$Html$thead = _VirtualDom_node('thead');
+var author$project$Main$viewTableHead = function (model) {
 	return A2(
-		elm$html$Html$tbody,
-		_List_Nil,
+		elm$html$Html$thead,
 		_List_fromArray(
 			[
-				A2(author$project$Main$viewTableInputRow, author$project$Main$alertInput, model),
-				A4(author$project$Main$viewTableFirstRow, 'Under normal:', author$project$Main$alertInfo, 18.5, model),
-				A5(author$project$Main$viewTableRow, 'Normal vægt:', author$project$Main$alertSuccess, 18.5, 25, model),
-				A5(author$project$Main$viewTableRow, 'Overvægtig:', author$project$Main$alertWarning, 25, 30, model),
-				A5(author$project$Main$viewTableRow, 'Overvægtig fedme klasse 1:', author$project$Main$alertDanger, 30, 35, model),
-				A5(author$project$Main$viewTableRow, 'Overvægtig fedme klasse 2:', author$project$Main$alertDanger, 35, 40, model),
-				A4(author$project$Main$viewTableLastRow, 'Overvægtig fedme klasse 3:', author$project$Main$alertDanger, 40, model)
+				elm$html$Html$Attributes$class('thead-light')
+			]),
+		_List_fromArray(
+			[
+				author$project$Main$viewTableHeadLine,
+				A2(author$project$Main$viewTableInputRow, author$project$Main$alertInput, model)
 			]));
 };
-var author$project$Main$alertHeader = 'alert-secondary';
-var elm$html$Html$th = _VirtualDom_node('th');
-var author$project$Main$viewTableHeadLine = A2(
-	elm$html$Html$th,
-	_List_Nil,
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$div,
-			_Utils_ap(
-				author$project$Main$alertStyle(author$project$Main$alertHeader),
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'font-size', '8vw')
-					])),
-			_List_fromArray(
-				[
-					elm$html$Html$text('Beregn din ideal vægt')
-				]))
-		]));
-var elm$html$Html$thead = _VirtualDom_node('thead');
-var author$project$Main$viewTableHead = A2(
-	elm$html$Html$thead,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$class('thead-light')
-		]),
-	_List_fromArray(
-		[author$project$Main$viewTableHeadLine]));
 var elm$html$Html$table = _VirtualDom_node('table');
 var author$project$Main$view = function (model) {
 	return A2(
@@ -5460,7 +5470,9 @@ var author$project$Main$view = function (model) {
 			]),
 		_Utils_ap(
 			_List_fromArray(
-				[author$project$Main$viewTableHead]),
+				[
+					author$project$Main$viewTableHead(model)
+				]),
 			_List_fromArray(
 				[
 					author$project$Main$viewTableBody(model)
